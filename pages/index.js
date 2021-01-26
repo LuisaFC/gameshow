@@ -7,12 +7,12 @@ import GithubCorner from '../src/components/GithubCorner/index'
 import QuizLogo from '../src/components/QuizLogo'
 import QuizBackground from '../src/components/QuizBackground'
 
-const BackgroundImage = styled.div`
-  background-image: url(${db.bg});
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-`;
+// const BackgroundImage = styled.div`
+//   background-image: url(${db.bg});
+//   flex: 1;
+//   background-size: cover;
+//   background-position: center;
+// `;
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -27,7 +27,7 @@ export const QuizContainer = styled.div`
 
 export default function Home() {
   return (
-    <BackgroundImage>
+    <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <Widget>
           <Widget.Header>
@@ -46,7 +46,9 @@ export default function Home() {
             <p>Lorem ipsum</p>
           </Widget.Content>
         </Widget>
+        <Footer/>
       </QuizContainer>
-    </BackgroundImage>
+      <GithubCorner projectUrl="https://github.com/LuisaFC"/>
+    </QuizBackground>
   );
 }
