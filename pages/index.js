@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import db from "../db.json";
-
-import {Widget} from '../src/components/Widget/index'
-import Footer from '../src/components/Footer/index'
-import GithubCorner from '../src/components/GithubCorner/index'
-import QuizLogo from '../src/components/QuizLogo'
-import QuizBackground from '../src/components/QuizBackground'
+import React from 'react';
+import styled from 'styled-components';
+import db from '../db.json';
+import { Widget } from '../src/components/Widget/index';
+import Footer from '../src/components/Footer/index';
+import GithubCorner from '../src/components/GithubCorner/index';
+import QuizLogo from '../src/components/QuizLogo';
+import QuizBackground from '../src/components/QuizBackground';
 
 // const BackgroundImage = styled.div`
 //   background-image: url(${db.bg});
@@ -46,9 +46,9 @@ export default function Home() {
             <p>Lorem ipsum</p>
           </Widget.Content>
         </Widget>
-        <Footer/>
+        <Footer />
       </QuizContainer>
-      <GithubCorner projectUrl="https://github.com/LuisaFC"/>
+      <GithubCorner projectUrl="https://github.com/LuisaFC" />
     </QuizBackground>
   );
 }
