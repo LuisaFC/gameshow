@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
 import db from '../db.json';
 import { Widget } from '../src/components/Widget/index';
 import Footer from '../src/components/Footer/index';
@@ -26,15 +29,35 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const [name, setName] = useState('');
+  const router = useRouter();
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>Quiz</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+      </Head>
       <QuizContainer>
+        <QuizLogo />
         <Widget>
           <Widget.Header>
             <h1>The Legend of CSS</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>Lorem ipsum</p>
+            <form onSubmit={function (e) {
+              e.preventDefault();
+              router.push(`/quiz?name=${name}`);
+            }}
+            >
+              <input placeholder="Nome" onChange={function (info) { setName(info.target.value); }} />
+              <button type="submit" disabled={name.length === 0}>
+                Bora jogar
+                {' '}
+                {name}
+                !
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
       </QuizContainer>
